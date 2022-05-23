@@ -23,6 +23,6 @@ public interface ArtistRepository extends CrudRepository<Artist,String> {
     List<TrackDto> popularTracks(Integer stream);
 
 
-    @Query("select  NEW webg5.g48982.spotify.dto.TrackInfoDto(s.title,s.stream) from Artist a join a.tracks s where a.login=?1")
+    @Query("select  NEW webg5.g48982.spotify.dto.TrackInfoDto(s.id,s.title,s.stream) from Artist a join a.tracks s where a.login=?1")
     List<TrackInfoDto> tracksInfos(String login);
 }

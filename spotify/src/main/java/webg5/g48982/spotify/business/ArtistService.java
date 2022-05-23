@@ -32,4 +32,6 @@ public class ArtistService {
     public String artistLogin(String login) {
         return artistRepository.findById(login).get().getLogin();
     }
+
+
 }

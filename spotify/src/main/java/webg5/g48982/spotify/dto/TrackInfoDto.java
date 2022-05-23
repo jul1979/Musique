@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class TrackInfoDto {
 
+    private Integer id;
     private String title;
     private Integer stream;
 }

@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-md-6" layout:fragment="topleft">
                 <div>
-                    <img  th:src="@{'../images/'+ ${login}+'.jpg'}"  alt="eeee" >
+                    <img  th:src="@{'/images/'+ ${login}+'.jpg'}"  alt="no image available" >
                 </div>
 
                 <table class="table table-hover"  >
@@ -56,6 +56,7 @@
                     <tr>
                         <th scope="col">Titre </th>
                         <th scope="col">Stream</th>
+                        <th scope="col">Mise à jour</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -64,6 +65,22 @@
 
                         <td th:text="${artist.title}" > </td>
                         <td th:text="${artist.stream}" > </td>
+                        <td>
+
+
+                            <form  th:action="@{/updateSong(id=${artist.id},login=${login},title=${artist.title})}" method="post" class="form-inline" th:object="${track}">
+                                <div class="form-group mb-2">
+                                    <input type="number" th:field="*{stream}" class="form-control" placeholder="integer"   >
+                                    <span th:errors="*{stream}" class="text-danger errorMsg"></span>
+                                </div>
+
+
+                                <div class="form-group mx-sm-3 mb-2">
+                                    <button type=submit class="btn btn-dark" >Envoyer</button>
+                                </div>
+                            </form>
+
+                        </td>
                     </tr>
 
 
