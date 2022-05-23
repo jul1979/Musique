@@ -1,5 +1,6 @@
 package webg5.g48982.spotify.dto;
 
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,9 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ArtistDto {
+public class TrackInfoDto {
 
-    private String login;
-    private String name;
-    private Long tracks;
+    private String title;
+    private Integer stream;
 }

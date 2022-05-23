@@ -46,23 +46,31 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" layout:fragment="topleft">
+                <div>
+                    <img  th:src="@{'../images/'+ ${login}+'.jpg'}"  alt="eeee" >
+                </div>
 
-                <table class="table table-hover" >
+                <table class="table table-hover"  >
                     <caption></caption>
                     <thead>
                     <tr>
-                        <th scope="col">Nom </th>
-                        <th scope="col">Nombre de chansons</th>
+                        <th scope="col">Titre </th>
+                        <th scope="col">Stream</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="table-active table-info" th:each="artist:${artists}" >
 
-                        <td >
-                            <a th:href="@{/detail/(login=${artist.login})}" th:text="${artist.name}" >Ed sheeran</a>
-                        </td>
-                        <td th:text="${artist.tracks}" > </td>
+
+                        <td th:text="${artist.title}" > </td>
+                        <td th:text="${artist.stream}" > </td>
                     </tr>
+
+
+                    <div th:if="${artists.isEmpty()}">
+                        <p> Aucune chanson disponible</p>
+                    </div>
+
                     </tbody>
                 </table>
 
