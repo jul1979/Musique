@@ -47,16 +47,13 @@ public class ArtistController {
                          Model model){
         int idAsInt = Integer.parseInt(id);
         track.setTitle(title);
-        //trackService.findStreamById(idAsInt)
-        //track.setStream(trackService.findStreamById(idAsInt));
         if(errors.hasErrors()){
-           // model.addAttribute("artists",artistService.tracksInfos(id));
-            //model.addAttribute("login",artistService.artistLogin(id));
-            return "detail";
+            model.addAttribute("artists",artistService.tracksInfos(login));
+            model.addAttribute("login",artistService.artistLogin(login));
+            return "detailView";
         }
         trackService.upDateTrack(idAsInt,track.getStream());
         return  detail(login,model);
-
     }
 
 

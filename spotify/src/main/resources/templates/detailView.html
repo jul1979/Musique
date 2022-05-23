@@ -68,16 +68,18 @@
                         <td>
 
 
-                            <form  th:action="@{/updateSong(id=${artist.id},login=${login},title=${artist.title})}" method="post" class="form-inline" th:object="${track}">
-                                <div class="form-group mb-2">
-                                    <input type="number" th:field="*{stream}" class="form-control" placeholder="integer"   >
-                                    <span th:errors="*{stream}" class="text-danger errorMsg"></span>
-                                </div>
+                            <form  th:action="@{/updateSong(id=${artist.id},login=${login},title=${artist.title})}" method="post"  th:object="${track}">
 
+                                <div class="form-group mb-2">
+                                <input type="number" th:field="*{stream}" class="form-control" placeholder="integer"  >
+                                </div>
+                                    <span th:errors="*{stream}" class="text-danger errorMsg"></span>
+<!--                                    <span th:if="${#fields.hasErrors('stream')}" th:errors="*{stream}"  class="text-danger errorMsg">Full name error</span>-->
 
                                 <div class="form-group mx-sm-3 mb-2">
-                                    <button type=submit class="btn btn-dark" >Envoyer</button>
+                                <button type=submit class="btn btn-dark" >Envoyer</button>
                                 </div>
+
                             </form>
 
                         </td>
